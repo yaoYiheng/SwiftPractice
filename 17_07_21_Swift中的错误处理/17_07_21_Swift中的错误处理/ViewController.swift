@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         print(json)
 
         //方法三: do catch处理异常, 能够接受并且输出错误
+        //扩展, OC中是否使用try catch?为啥?
+        //因为try catch无法捕获UncaughtException，而oc中大部分crash如：内存溢出、野指针等都是无法捕获的，而能捕获的只是像数组越界之类（这真心需要catch么？），所以try catch对于oc来说，比较鸡肋。
+        //在ARC下开发, 编译器自动添加retain/release/autorelease如果用try catch一旦不平衡, 就会出现内存泄漏
         do{
             let json3 = try JSONSerialization.jsonObject(with: data!, options: [])
             print(json3)
