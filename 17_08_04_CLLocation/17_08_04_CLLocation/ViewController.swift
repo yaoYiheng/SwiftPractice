@@ -11,6 +11,8 @@ import CoreLocation
 
 class ViewController: UIViewController {
 
+    /// 用来记录上一次的位置
+    var lastPositon: CLLocation?
     //懒加载locationManager
     private lazy var locationManager : CLLocationManager = {
         //实例化
@@ -58,18 +60,64 @@ class ViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
 
         //不能与startUpdatingLocation 和allowDeferredLocationUpdates同时使用
         //在有限的时间内, 精确度由低到高
         //传递一次用户请求的当前位置
-        locationManager.requestLocation()
+//        locationManager.requestLocation()
     }
 
 
 }
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        showDistination(locations: locations)
+
+    }
+
+    /// 演练打印当前用户行走的方向偏离角度及速度
+    //     例如:”北偏东 30度 方向,移动了 8米”
+    private func showDistination(locations: [CLLocation]) {
+
+        //判断位置是否为nil以及是否是有效值
+        guard let lastLocation = locations.last else {return}
+        if lastLocation.horizontalAccuracy < 0 {return}
+
+        //1. 计算出偏向
+        let angleStrs = ["北偏东", "东偏南", "南偏西", "西偏北"]
+        let index = Int(lastLocation.course) / 90
+        var angleStr = angleStrs[index]
+
+        //2. 计算出偏移的角度
+        //模运算使用truncatingRemainder
+        let angle = lastLocation.course .truncatingRemainder(dividingBy: 90)
+        if Int(angle) == 0 {
+            let index = angleStr.characters.index(angleStr.startIndex, offsetBy: 1)
+            angleStr = "正" + angleStr.substring(to: index)
+        }
+        // 3. 移动了多少米
+        let last = lastPositon ?? lastLocation
+        let distance = lastLocation.distance(from: last)
+        lastPositon = lastLocation
+
+
+
+
+        // 4. 合并字符串, 打印
+        //        例如:”北偏东 30度 方向,移动了 8米”
+        if Int(angle) == 0 {
+            print(angleStr + "方向, 移动了\(distance)米")
+        }else
+        {
+            print(angleStr + "\(angle)" + "方向, 移动了\(distance)米")
+        }
+
+    }
+
+    /// 在该方法中, 了解'CLLocation'对象的相关属性
+    private func relevantProperty(locations: [CLLocation]) {
         print(locations)
         //获取最新的地点
         let newLocation = locations.last
@@ -94,9 +142,13 @@ extension ViewController: CLLocationManagerDelegate{
 
         print("距离为\(disctance)")
 
-
-
     }
+
+    /// 如果调用requestLocation就必须实现该代理方法, 否则报错
+    ///
+    /// - Parameters:
+    ///   - manager: manager
+    ///   - error: error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
