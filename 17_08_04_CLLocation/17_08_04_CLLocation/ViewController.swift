@@ -71,6 +71,31 @@ class ViewController: UIViewController {
 extension ViewController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations)
+        //获取最新的地点
+        let newLocation = locations.last
+        //当前纬度
+        let latitude = newLocation?.coordinate.latitude
+        //当前经度
+        let longitude = newLocation?.coordinate.longitude
+        //当前海拔
+        let altitude = newLocation?.altitude
+        //当前速度
+        let speed = newLocation?.speed
+        //当前角度
+        let course = newLocation?.course
+        //由于都是可选值, 需要解包
+        //        horizontalAccuracy与verticalAccuracy:如果为负值, 则数据无效
+        print("当前经纬度为: \(longitude!) -- \(latitude!)--海拔为\(altitude!)--速度为\(speed!)--角度为\(course!)")
+
+        //初始化坐标以及两点间距离
+        let loc1:CLLocation = CLLocation.init(latitude: 0, longitude: 111)
+        let loc2: CLLocation = CLLocation.init(latitude: 0, longitude: 112)
+        let disctance: CLLocationDistance = loc1.distance(from: loc2)
+
+        print("距离为\(disctance)")
+
+
+
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
