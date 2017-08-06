@@ -67,14 +67,32 @@ class ViewController: UIViewController {
         //在有限的时间内, 精确度由低到高
         //传递一次用户请求的当前位置
 //        locationManager.requestLocation()
+
+        //  使用位置管理者, 获取当前设备朝向
+        // "磁力计"传感器
+        if CLLocationManager.headingAvailable() {
+            locationManager.startUpdatingHeading()
+        }else {
+            print("当前磁力计设备损坏")
+        }
     }
 
 
 }
 extension ViewController: CLLocationManagerDelegate{
+
+
+    /// 监听磁力计 传感器的代理方法
+
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        print(newHeading)
+    }
+
+    /// 该方法告诉代理新的位置消息可用
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-        showDistination(locations: locations)
+        //演练打印当前用户行走的方向偏离角度及速度
+//        showDistination(locations: locations)
 
     }
 
