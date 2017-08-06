@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A51ADFA71F37390400BC1F36 /* bg_compasspointer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_compasspointer.png; sourceTree = "<group>"; };
 		A5DC1CE91F349083005D2553 /* 17_08_04_CLLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 17_08_04_CLLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DC1CEC1F349083005D2553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5DC1CEE1F349083005D2553 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 			children = (
 				A5DC1CEC1F349083005D2553 /* AppDelegate.swift */,
 				A5DC1CEE1F349083005D2553 /* ViewController.swift */,
+				A51ADFA71F37390400BC1F36 /* bg_compasspointer.png */,
 				A5DC1CF01F349083005D2553 /* Main.storyboard */,
 				A5DC1CF31F349083005D2553 /* Assets.xcassets */,
 				A5DC1CF51F349083005D2553 /* LaunchScreen.storyboard */,

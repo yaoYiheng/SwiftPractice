@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var compassImageView: UIImageView!
+    
     /// 用来记录上一次的位置
     var lastPositon: CLLocation?
     //懒加载locationManager
