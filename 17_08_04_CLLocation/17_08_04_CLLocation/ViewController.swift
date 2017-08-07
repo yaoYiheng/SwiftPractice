@@ -31,7 +31,12 @@ class ViewController: UIViewController {
             // 如果当前的授权状态是前台定位授权, 那么你需要勾选后台模式 location updates, 还要额外的设置以下属性为true
             // 注意: 如果设置这个属性为true, 那么必须勾选后台模式
             if #available(iOS 9.0, *) {
-                locationManager.allowsBackgroundLocationUpdates = true
+//                locationManager.allowsBackgroundLocationUpdates = true
+                ///调用该方法, 前后台定位授权, 不需要设置background mode 为ON, 就能够监听前后台时的位置信息, 且后台状态不会出现蓝色框.此时的授权状态为 "authorizedAlways"
+                //并且需要在info.plist中修改描述
+                locationManager.requestAlwaysAuthorization()
+
+
             }
 
             // 前后台定位授权
@@ -85,7 +90,14 @@ extension ViewController: CLLocationManagerDelegate{
     /// 监听磁力计 传感器的代理方法
 
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        print(newHeading)
+        //1. 求出偏移的角度
+        let angle = newHeading.magneticHeading / 180 * Double.pi
+
+        UIView.animate(withDuration: 0.3) {
+            self.compassImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-angle))
+        }
+
+//        print(angle)
     }
 
     /// 该方法告诉代理新的位置消息可用
