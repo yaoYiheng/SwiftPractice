@@ -80,11 +80,58 @@ class ViewController: UIViewController {
         }else {
             print("当前磁力计设备损坏")
         }
+
+        ///开始区域监听
+        monitorRegion()
     }
 
 
+    /// 区域监听
+    private func monitorRegion() {
+        //监听之前, 需要判断, 是否能够监听某个区域
+
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            //创建监听的区域
+            let center = CLLocationCoordinate2DMake(21.123, 121.345)
+
+            let distance: CLLocationDistance = 1000
+
+            let region = CLCircularRegion(center: center, radius: distance, identifier: "xxx地")
+            //开始监听该区域
+            locationManager.startMonitoring(for: region)
+
+            //异步获取监听区域的状态
+            locationManager.requestState(for: region)
+        }
+
+    }
+
 }
 extension ViewController: CLLocationManagerDelegate{
+
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+
+        //根据标识判断是否监听的是指定的地方
+        if region.identifier == "xxx地" {
+            if state == .inside{
+                print("在\(region.identifier)")
+            }else if state == .outside{
+                print("不在\(region.identifier)")
+            }
+            else{
+                print("不知道在哪")
+            }
+        }
+    }
+    /// 当前设备进入监听的区域时
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+          print("已经进入\(region.identifier)")
+    }
+
+    /// 当前设备离开监听的区域时
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print("已经离开\(region.identifier)")
+    }
 
 
     /// 监听磁力计 传感器的代理方法
