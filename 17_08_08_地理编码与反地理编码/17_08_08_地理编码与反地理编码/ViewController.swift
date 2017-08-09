@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     private lazy var geoCoder: CLGeocoder = {
         return CLGeocoder()
     }()
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     /// 地理编码: 将地址转换成为经纬度
     @IBAction func geoCode() {
         guard let addressStr = addressTextField.text else {return}
@@ -74,4 +78,24 @@ class ViewController: UIViewController {
 
 
 }
+extension ViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+extension ViewController: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let frame:CGRect = textView.frame
+        let offset:CGFloat = frame.origin.y + 100 - (self.view.frame.size.height-330)
 
+        if offset > 0  {
+
+            self.view.frame = CGRect(x: 0.0, y: -offset, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        }
+
+
+    }
+
+
+}
