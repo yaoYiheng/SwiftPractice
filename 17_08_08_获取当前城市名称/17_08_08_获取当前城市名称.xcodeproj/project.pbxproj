@@ -22,6 +22,17 @@
 		A541163F1F3B2207009FFFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A54116421F3B2207009FFFCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A54116441F3B2207009FFFCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A541164B1F3C77EF009FFFCD /* INTUHeadingRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTUHeadingRequest.h; sourceTree = "<group>"; };
+		A541164C1F3C77EF009FFFCD /* INTULocationRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INTULocationRequest.m; sourceTree = "<group>"; };
+		A541164D1F3C77EF009FFFCD /* INTURequestIDGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTURequestIDGenerator.h; sourceTree = "<group>"; };
+		A541164E1F3C77EF009FFFCD /* INTULocationManager+Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "INTULocationManager+Internal.h"; sourceTree = "<group>"; };
+		A541164F1F3C77EF009FFFCD /* INTULocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTULocationManager.h; sourceTree = "<group>"; };
+		A54116501F3C77EF009FFFCD /* INTULocationRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTULocationRequest.h; sourceTree = "<group>"; };
+		A54116511F3C77EF009FFFCD /* INTUHeadingRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INTUHeadingRequest.m; sourceTree = "<group>"; };
+		A54116521F3C77EF009FFFCD /* INTURequestIDGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INTURequestIDGenerator.m; sourceTree = "<group>"; };
+		A54116531F3C77EF009FFFCD /* INTULocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INTULocationManager.m; sourceTree = "<group>"; };
+		A54116541F3C77EF009FFFCD /* INTULocationRequestDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INTULocationRequestDefines.h; sourceTree = "<group>"; };
+		A54116571F3C7A05009FFFCD /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +65,33 @@
 		A54116371F3B2207009FFFCD /* 17_08_08_获取当前城市名称 */ = {
 			isa = PBXGroup;
 			children = (
+				A541164A1F3C77EF009FFFCD /* INTULocationManager */,
 				A54116381F3B2207009FFFCD /* AppDelegate.swift */,
 				A541163A1F3B2207009FFFCD /* ViewController.swift */,
 				A541163C1F3B2207009FFFCD /* Main.storyboard */,
 				A541163F1F3B2207009FFFCD /* Assets.xcassets */,
 				A54116411F3B2207009FFFCD /* LaunchScreen.storyboard */,
 				A54116441F3B2207009FFFCD /* Info.plist */,
+				A54116571F3C7A05009FFFCD /* Bridge.h */,
 			);
 			path = "17_08_08_获取当前城市名称";
+			sourceTree = "<group>";
+		};
+		A541164A1F3C77EF009FFFCD /* INTULocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				A541164B1F3C77EF009FFFCD /* INTUHeadingRequest.h */,
+				A541164C1F3C77EF009FFFCD /* INTULocationRequest.m */,
+				A541164D1F3C77EF009FFFCD /* INTURequestIDGenerator.h */,
+				A541164E1F3C77EF009FFFCD /* INTULocationManager+Internal.h */,
+				A541164F1F3C77EF009FFFCD /* INTULocationManager.h */,
+				A54116501F3C77EF009FFFCD /* INTULocationRequest.h */,
+				A54116511F3C77EF009FFFCD /* INTUHeadingRequest.m */,
+				A54116521F3C77EF009FFFCD /* INTURequestIDGenerator.m */,
+				A54116531F3C77EF009FFFCD /* INTULocationManager.m */,
+				A54116541F3C77EF009FFFCD /* INTULocationRequestDefines.h */,
+			);
+			path = INTULocationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +309,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-08-08---------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "17_08_08_获取当前城市名称/Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,6 +325,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-08-08---------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "17_08_08_获取当前城市名称/Bridge.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
