@@ -13,6 +13,7 @@
 		A5AB37041F41BE7E00147F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AB37031F41BE7E00147F0F /* Assets.xcassets */; };
 		A5AB37071F41BE7E00147F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5AB37051F41BE7E00147F0F /* LaunchScreen.storyboard */; };
 		A5AB37101F41BEE100147F0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AB370F1F41BEE100147F0F /* MapKit.framework */; };
+		A5AB37121F43BC2700147F0F /* YYHAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AB37111F43BC2700147F0F /* YYHAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A5AB37061F41BE7E00147F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5AB37081F41BE7E00147F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5AB370F1F41BEE100147F0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A5AB37111F43BC2700147F0F /* YYHAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YYHAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				A5AB36FC1F41BE7E00147F0F /* AppDelegate.swift */,
 				A5AB36FE1F41BE7E00147F0F /* ViewController.swift */,
+				A5AB37111F43BC2700147F0F /* YYHAnnotation.swift */,
 				A5AB37001F41BE7E00147F0F /* Main.storyboard */,
 				A5AB37031F41BE7E00147F0F /* Assets.xcassets */,
 				A5AB37051F41BE7E00147F0F /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				A5AB36FF1F41BE7E00147F0F /* ViewController.swift in Sources */,
 				A5AB36FD1F41BE7E00147F0F /* AppDelegate.swift in Sources */,
+				A5AB37121F43BC2700147F0F /* YYHAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

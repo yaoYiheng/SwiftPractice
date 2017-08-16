@@ -48,9 +48,15 @@ class ViewController: UIViewController {
         mapView.delegate = self
 
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    //当点击时在地图上添加一个大头针
+    //在地图上操作大头针, 实际上就是操作大头针的数据模型
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let annotation = YYHAnnotation()
+        annotation.coordinate = mapView.centerCoordinate
+
+        mapView.addAnnotation(annotation)
     }
 
 
@@ -67,6 +73,19 @@ extension ViewController: MKMapViewDelegate{
         //设置地图中心的经纬度坐标为用户当前坐标
         mapView.setCenter((userLocation.location?.coordinate)!, animated: true)
 
+        let span = MKCoordinateSpanMake(0.02, 0.02)
+
+        let region = MKCoordinateRegionMake((userLocation.location?.coordinate)!, span)
+        //可调用该方法对显示区域进行缩放至合适范围.
+        mapView.setRegion(region, animated: true)
+
+    }
+
+    ///当区域改变时会调用该方法
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        //
+        _ = mapView.region.span.latitudeDelta
+        _ = mapView.region.span.longitudeDelta
     }
 }
 
