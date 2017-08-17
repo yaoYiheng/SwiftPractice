@@ -22,10 +22,15 @@ class ViewController: UIViewController {
         return locationManager
 
     }()
+
+    lazy var geoCoder: CLGeocoder = {
+        return CLGeocoder()
+
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locationProperty()
+//        locationProperty()
     }
 
     func locationProperty() -> Void {
@@ -53,12 +58,52 @@ class ViewController: UIViewController {
     //在地图上操作大头针, 实际上就是操作大头针的数据模型
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let annotation = YYHAnnotation()
-        annotation.coordinate = mapView.centerCoordinate
 
-        mapView.addAnnotation(annotation)
+        //将touches的点提取出来
+        guard let touch = touches.first else {return}
+        let point = touch.location(in: mapView)
+
+        //将在mapview上的点转换成经纬度
+       let coordinate = mapView.convert(point, toCoordinateFrom: mapView)
+
+        //拿到通过自定义的方法返回的大头针对象
+        let annotation = addAnnotation(coordinate, title: "未知", subtitle: "未知")
+
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+
+        //通过反地理编码将经纬度信息转成地理信息
+        geoCoder.reverseGeocodeLocation(location) { (placeMark, error) in
+            //将通过闭包传递的大头针模型设置到
+            if error == nil {
+                let pl = placeMark?.first
+                print(pl)
+                annotation.title = pl?.locality
+                annotation.subtitle = pl?.name
+
+            }
+        }
+
+
     }
 
+    /// 向视图中添加大头针
+    ///
+    /// - Parameters:
+    ///   - coordinate: 经纬度
+    ///   - title: 标题
+    ///   - subtitle: 副标题
+    private func addAnnotation(_ coordinate: CLLocationCoordinate2D, title: String, subtitle: String) -> YYHAnnotation{
+
+        let annotation: YYHAnnotation = YYHAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = title
+        annotation.subtitle = subtitle
+
+        mapView.addAnnotation(annotation)
+
+        return annotation
+    }
 
 }
 
@@ -67,17 +112,17 @@ extension ViewController: MKMapViewDelegate{
 
     /// 当地图更新用户位置时, 会调用该方法
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-
-        //MKUserLocation: 大头针数据模型
-
-        //设置地图中心的经纬度坐标为用户当前坐标
-        mapView.setCenter((userLocation.location?.coordinate)!, animated: true)
-
-        let span = MKCoordinateSpanMake(0.02, 0.02)
-
-        let region = MKCoordinateRegionMake((userLocation.location?.coordinate)!, span)
-        //可调用该方法对显示区域进行缩放至合适范围.
-        mapView.setRegion(region, animated: true)
+//
+//        //MKUserLocation: 大头针数据模型
+//
+//        //设置地图中心的经纬度坐标为用户当前坐标
+////        mapView.setCenter((userLocation.location?.coordinate)!, animated: true)
+//
+//        let span = MKCoordinateSpanMake(0.02, 0.02)
+//
+//        let region = MKCoordinateRegionMake((userLocation.location?.coordinate)!, span)
+//        //可调用该方法对显示区域进行缩放至合适范围.
+//        mapView.setRegion(region, animated: true)
 
     }
 
