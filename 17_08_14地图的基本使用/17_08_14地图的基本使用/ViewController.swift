@@ -132,5 +132,18 @@ extension ViewController: MKMapViewDelegate{
         _ = mapView.region.span.latitudeDelta
         _ = mapView.region.span.longitudeDelta
     }
+
+
+    /// 当添加一个大头针数据模型到地图上时, 就会自动调用该代理方法, 来查找对应的大头针视图
+    /// 自定义大头针视图
+    /// - Parameters:
+    ///   - mapView: 地图
+    ///   - annotation: 大头针模型
+    /// - Returns: 大头针"视图"
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("test")
+
+        return nil
+    }
 }
 
