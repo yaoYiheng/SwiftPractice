@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        locationProperty()
+        locationProperty()
     }
 
     func locationProperty() -> Void {
@@ -141,9 +141,24 @@ extension ViewController: MKMapViewDelegate{
     ///   - annotation: 大头针模型
     /// - Returns: 大头针"视图"
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("test")
 
-        return nil
+        //系统自带的大头针, 与cell类似, 都是采用复用机制, 首先从缓存池中获取, 如果获取不到在创建新的
+        //1. 从缓存池中获取
+        let identifier = "item"
+
+        //强转成子类
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)  as? MKPinAnnotationView
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        //显示弹窗
+        annotationView?.canShowCallout = true
+
+        //设置大头针的颜色
+        annotationView?.pinTintColor = UIColor.cyan
+
+        return annotationView
     }
 }
 
