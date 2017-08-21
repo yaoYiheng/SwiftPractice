@@ -13,12 +13,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
 
 
+    private lazy var locationManager: CLLocationManager = {
+        let locationaManager = CLLocationManager()
+
+        locationaManager.requestAlwaysAuthorization()
+
+        return locationaManager
+    }()
+
     private lazy var geoCoder: CLGeocoder = {
         return CLGeocoder()
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = locationManager
+
+        //系统已经封装好的一个导航栏按钮, 用来切换追踪模式
+        let leftItem = MKUserTrackingBarButtonItem(mapView: mapView)
+
+        navigationItem.leftBarButtonItem = leftItem
+
 
     }
 

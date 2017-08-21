@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+
+
+        //从UIStoryboard中加载箭头指向的控制器
+        let viewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController()
+
+
+        let navigationVC = UINavigationController(rootViewController: viewController!)
+
+
+        window?.rootViewController = navigationVC
+
+        window?.makeKeyAndVisible()
+
+
+
         return true
     }
 
