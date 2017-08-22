@@ -29,36 +29,66 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         _ = locationManager
 
+        //配置mapView
+        configureMapView()
+
+        //添加毛玻璃
+        addGlass()
+
+    }
+
+
+    private func configureMapView () {
+        mapView.mapType = .hybrid
+        mapView.isRotateEnabled = false
+        
+
+    }
+
+    ///设置UI
+    private func setupUI () {
         //系统已经封装好的一个导航栏按钮, 用来切换追踪模式
         let leftItem = MKUserTrackingBarButtonItem(mapView: mapView)
 
         navigationItem.leftBarButtonItem = leftItem
 
+    }
+
+    /// 添加毛玻璃
+    private func addGlass() {
+        let toolBar = UIToolbar.init(frame: view.bounds)
+
+        toolBar.barStyle = .black
+        toolBar.backgroundColor = UIColor.darkGray
+        toolBar.alpha = 0.7
+        toolBar.isUserInteractionEnabled = false
+
+        view.addSubview(toolBar)
 
     }
 
     ///点击后添加大头针
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //获取点
-        guard let point = touches.first?.location(in: mapView) else {return}
-        //将点转化成经纬度
-        let coordinate: CLLocationCoordinate2D = mapView.convert(point, toCoordinateFrom: mapView)
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
-        let annotation = addAnnotation(coordinate, title: "未知", subTitle: "未知")
-
-        //使用反地理编码, 将经纬度坐标转换成地址, 懒加载创建geoCoder
-        geoCoder.reverseGeocodeLocation(location) { (placeMark, error) in
-            if error == nil{
-                let placeM = placeMark?.first
-
-                annotation.title = placeM?.administrativeArea
-                annotation.subtitle = placeM?.name
-
-            }
-        }
-
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        //获取点
+//        guard let point = touches.first?.location(in: mapView) else {return}
+//        //将点转化成经纬度
+//        let coordinate: CLLocationCoordinate2D = mapView.convert(point, toCoordinateFrom: mapView)
+//        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+//
+//        let annotation = addAnnotation(coordinate, title: "未知", subTitle: "未知")
+//
+//        //使用反地理编码, 将经纬度坐标转换成地址, 懒加载创建geoCoder
+//        geoCoder.reverseGeocodeLocation(location) { (placeMark, error) in
+//            if error == nil{
+//                let placeM = placeMark?.first
+//
+//                annotation.title = placeM?.administrativeArea
+//                annotation.subtitle = placeM?.name
+//
+//            }
+//        }
+//
+//    }
 
     private func addAnnotation(_ coordinate: CLLocationCoordinate2D, title: String, subTitle:String) -> YHAnnotation{
 
@@ -124,7 +154,8 @@ extension ViewController: MKMapViewDelegate{
         annotationView?.canShowCallout = true
         
 
-        return annotationView
+        return nil
+
     }
 }
 
