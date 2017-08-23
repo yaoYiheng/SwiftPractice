@@ -12,6 +12,8 @@ import MapKit
 class ViewController: UIViewController {
 
     var mapView: MKMapView!
+    var overlay: Array<MKOverlay>!
+
 
     private lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
@@ -57,6 +59,8 @@ extension ViewController: CLLocationManagerDelegate{
         if location.horizontalAccuracy < 0 {return}
 
         print(location)
+
+
     }
 
 
