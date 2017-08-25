@@ -8,13 +8,23 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
+
+    var mapView = MAMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        initMapView()
     }
 
+    private func initMapView() {
+        mapView.frame = view.bounds
+        mapView.delegate = self
+        mapView.mapType = .standard
+        view.addSubview(mapView)
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -22,4 +32,9 @@ class ViewController: UIViewController {
 
 
 }
+
+extension ViewController: MAMapViewDelegate{
+
+}
+
 

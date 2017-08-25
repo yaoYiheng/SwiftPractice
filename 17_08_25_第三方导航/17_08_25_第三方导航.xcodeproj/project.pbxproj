@@ -26,6 +26,7 @@
 		A511B5C91F50313C008BCED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A511B5CC1F50313C008BCED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A511B5CE1F50313C008BCED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A517E30E1F50CA710024408B /* 17_08_25_第三方导航-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "17_08_25_第三方导航-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 				A511B5C91F50313C008BCED6 /* Assets.xcassets */,
 				A511B5CB1F50313C008BCED6 /* LaunchScreen.storyboard */,
 				A511B5CE1F50313C008BCED6 /* Info.plist */,
+				A517E30E1F50CA710024408B /* 17_08_25_第三方导航-Bridging-Header.h */,
 			);
 			path = "17_08_25_第三方导航";
 			sourceTree = "<group>";
@@ -123,6 +125,7 @@
 				TargetAttributes = {
 					A511B5BE1F50313C008BCED6 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -355,10 +358,13 @@
 			baseConfigurationReference = A4193F623377D8CCC4404F76 /* Pods-17_08_25_第三方导航.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "17_08_25_第三方导航/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-08-25------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "17_08_25_第三方导航/17_08_25_第三方导航-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -369,10 +375,12 @@
 			baseConfigurationReference = 83D709FCAEDB2101315B0AE9 /* Pods-17_08_25_第三方导航.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "17_08_25_第三方导航/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-7-08-25------";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "17_08_25_第三方导航/17_08_25_第三方导航-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
