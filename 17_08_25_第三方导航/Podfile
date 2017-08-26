@@ -1,5 +1,5 @@
 platform :ios, '8.0'
 target '17_08_25_第三方导航' do
-pod 'AMap2DMap'
+pod 'AMap3DMap'
 pod 'AMapSearch'
 end

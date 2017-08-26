@@ -12,7 +12,14 @@ import UIKit
 class ViewController: UIViewController {
 
     var mapView = MAMapView()
+    private lazy var locationManager: CLLocationManager = {
+        let locationaManager = CLLocationManager()
 
+        locationaManager.requestAlwaysAuthorization()
+
+
+        return locationaManager
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         initMapView()
@@ -21,7 +28,8 @@ class ViewController: UIViewController {
     private func initMapView() {
         mapView.frame = view.bounds
         mapView.delegate = self
-        mapView.mapType = .standard
+        mapView.mapType = .satellite
+        mapView.userTrackingMode = .follow
         view.addSubview(mapView)
 
     }
@@ -34,6 +42,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MAMapViewDelegate{
+
+    func mapView(_ mapView: MAMapView!, didLongPressedAt coordinate: CLLocationCoordinate2D) {
+        
+    }
 
 }
 
