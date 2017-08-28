@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 
         //设置位置管理者的代理
         locationManager.delegate = self
-        locationManager.distanceFilter = 10
+//        locationManager.distanceFilter = 10
 
 
         return locationManager
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 
         _ = locationManager
         initMapView()
+        addGlass()
     }
 
     private func initMapView() {
@@ -54,7 +55,18 @@ class ViewController: UIViewController {
         view.addSubview(mapView)
     }
 
+    /// 添加毛玻璃
+    private func addGlass() {
+        let toolBar = UIToolbar.init(frame: view.bounds)
 
+        toolBar.barStyle = .black
+        toolBar.backgroundColor = UIColor.darkGray
+        toolBar.alpha = 0.7
+        toolBar.isUserInteractionEnabled = false
+
+        mapView.addSubview(toolBar)
+
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         locationManager.startUpdatingLocation()
 
