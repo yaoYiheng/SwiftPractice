@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         _ = locationManager
         initMapView()
         addGlass()
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         toolBar.alpha = 0.7
         toolBar.isUserInteractionEnabled = false
 
-        mapView.addSubview(toolBar)
+        view.addSubview(toolBar)
 
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -90,14 +90,8 @@ class ViewController: UIViewController {
 
 // MARK: - <#CLLocationManagerDelegate#>
 extension ViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let lastlocation = locations.first else {return}
-        if lastlocation.horizontalAccuracy < 0 {return}
 
-
-
-
-        
+    func madeLine(lastlocation: CLLocation) -> Void {
 
         lineCoordinates.append(lastlocation.coordinate)
 
@@ -106,6 +100,39 @@ extension ViewController: CLLocationManagerDelegate{
 
 
         mapView.add(line)
+    }
+
+    private func addAnnotation(_ coordinate: CLLocationCoordinate2D, title: String, subTitle:String) -> YHAnnotation{
+        //1. 创建大头针对象
+        let annotation = YHAnnotation()
+
+        //2. 赋值相关属性
+            annotation.coordinate = coordinate
+            annotation.title = title
+            annotation.subtitle = subTitle
+        //3. 添加到地图
+        mapView.addAnnotation(annotation)
+
+        return annotation
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let lastlocation = locations.first else {return}
+        if lastlocation.horizontalAccuracy < 0 {return}
+
+
+
+        let annotation = addAnnotation(lastlocation.coordinate, title: "", subTitle: "")
+
+            //使用反地理编码, 将经纬度坐标转换成地址, 懒加载创建geoCoder
+            geoCoder.reverseGeocodeLocation(lastlocation) { (placeMark, error) in
+                if error == nil{
+                    let placeM = placeMark?.first
+
+                    annotation.title = placeM?.administrativeArea
+                    annotation.subtitle = placeM?.name
+
+                }
+            }
 
 //        lastPositon = lastlocation
 //        print(location)
@@ -159,6 +186,28 @@ extension ViewController: CLLocationManagerDelegate{
 }
 // MARK: - <#MKMapViewDelegate#>
 extension ViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        let identifier = "item"
+
+        //循环利用
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+        //赋值
+        annotationView?.annotation = annotation
+
+        //将雾以大头针的方式添加l
+        let image = UIImage(named: "fog")
+
+        annotationView?.image = image
+
+
+        return annotationView
+
+
+    }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {    // 创建折线渲染对象
 //        if ([overlay isKindOfClass:[MKPolyline class]]) {

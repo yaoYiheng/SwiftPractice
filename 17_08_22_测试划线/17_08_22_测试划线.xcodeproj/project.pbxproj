@@ -12,6 +12,7 @@
 		A58BCF111F4C35630040BA85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58BCF0F1F4C35630040BA85 /* Main.storyboard */; };
 		A58BCF131F4C35630040BA85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58BCF121F4C35630040BA85 /* Assets.xcassets */; };
 		A58BCF161F4C35630040BA85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58BCF141F4C35630040BA85 /* LaunchScreen.storyboard */; };
+		A5C03BC11F55720700B5F259 /* YHAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C03BC01F55720700B5F259 /* YHAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		A58BCF121F4C35630040BA85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58BCF151F4C35630040BA85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58BCF171F4C35630040BA85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5C03BC01F55720700B5F259 /* YHAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHAnnotation.swift; sourceTree = "<group>"; };
+		A5C03BC31F55786200B5F259 /* category_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_5@2x.png"; sourceTree = "<group>"; };
+		A5C03BC41F557C4700B5F259 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,10 @@
 			children = (
 				A58BCF0B1F4C35630040BA85 /* AppDelegate.swift */,
 				A58BCF0D1F4C35630040BA85 /* ViewController.swift */,
+				A5C03BC01F55720700B5F259 /* YHAnnotation.swift */,
 				A58BCF0F1F4C35630040BA85 /* Main.storyboard */,
+				A5C03BC41F557C4700B5F259 /* fog.png */,
+				A5C03BC31F55786200B5F259 /* category_5@2x.png */,
 				A58BCF121F4C35630040BA85 /* Assets.xcassets */,
 				A58BCF141F4C35630040BA85 /* LaunchScreen.storyboard */,
 				A58BCF171F4C35630040BA85 /* Info.plist */,
@@ -135,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C03BC11F55720700B5F259 /* YHAnnotation.swift in Sources */,
 				A58BCF0E1F4C35630040BA85 /* ViewController.swift in Sources */,
 				A58BCF0C1F4C35630040BA85 /* AppDelegate.swift in Sources */,
 			);

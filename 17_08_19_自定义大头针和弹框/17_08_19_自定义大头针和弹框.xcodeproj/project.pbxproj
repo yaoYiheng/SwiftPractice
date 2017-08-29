@@ -24,6 +24,7 @@
 		A52DFFA41F483F9B0061E43B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A52DFFA61F483F9B0061E43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A52DFFAC1F4840720061E43B /* YHAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHAnnotation.swift; sourceTree = "<group>"; };
+		A5C03BC51F557DF600B5F259 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 				A52DFF9A1F483F9B0061E43B /* AppDelegate.swift */,
 				A52DFF9C1F483F9B0061E43B /* ViewController.swift */,
 				A52DFFAC1F4840720061E43B /* YHAnnotation.swift */,
+				A5C03BC51F557DF600B5F259 /* fog.png */,
 				A52DFF9E1F483F9B0061E43B /* Main.storyboard */,
 				A52DFFA11F483F9B0061E43B /* Assets.xcassets */,
 				A52DFFA31F483F9B0061E43B /* LaunchScreen.storyboard */,
