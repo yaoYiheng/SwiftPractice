@@ -12,6 +12,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var mapView = MAMapView()
+    //位置管理者
     private lazy var locationManager: CLLocationManager = {
         let locationaManager = CLLocationManager()
 
@@ -20,11 +21,18 @@ class ViewController: UIViewController {
 
         return locationaManager
     }()
+
+    //地理编码
+    private lazy var geoCoder: CLGeocoder = {
+        return CLGeocoder()
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initMapView()
     }
 
+    //创建初始化地图
     private func initMapView() {
         mapView.frame = view.bounds
         mapView.delegate = self
@@ -41,8 +49,11 @@ class ViewController: UIViewController {
 
 }
 
+
+// MARK: - <#MAMapViewDelegate#>
 extension ViewController: MAMapViewDelegate{
 
+    //长按时调用
     func mapView(_ mapView: MAMapView!, didLongPressedAt coordinate: CLLocationCoordinate2D) {
         
     }
