@@ -38,15 +38,15 @@ class ViewController: UIViewController {
         mapView.delegate = self
         mapView.mapType = .satellite
         mapView.userTrackingMode = .follow
+        //设置地图相关属性
+        mapView.maxZoomLevel = 16
+        mapView.minZoomLevel = 3
+        mapView.isRotateEnabled = false
+        mapView.showsCompass = false
+        
         view.addSubview(mapView)
 
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
 
