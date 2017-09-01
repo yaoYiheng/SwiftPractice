@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleMaps
 
 class ViewController: UIViewController {
 
@@ -29,9 +29,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initMapView()
+//        initMapView()
     }
 
+    //使用google地图sdk
+//    override func loadView() {
+//        // Create a GMSCameraPosition that tells the map to display the
+//        // coordinate -33.86,151.20 at zoom level 6.
+//        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
+//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        mapView.isMyLocationEnabled = true
+//        view = mapView
+//
+//        // Creates a marker in the center of the map.
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.map = mapView
+//    }
     //创建初始化地图
     private func initMapView() {
         mapView.frame = view.bounds
@@ -43,7 +59,7 @@ class ViewController: UIViewController {
         mapView.minZoomLevel = 3
         mapView.isRotateEnabled = false
         mapView.showsCompass = false
-        
+
         view.addSubview(mapView)
 
     }
