@@ -20,6 +20,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func sendNot() {
 
+        // 1. 创建一个本地通知
+        let localNot = UILocalNotification()
+        // 1.1 设置通知的必选项
+        localNot.alertBody = "发发发通知!?"
+        // 1.2 通知的发送时间
+        localNot.fireDate = NSDate(timeIntervalSinceNow: 2) as Date
+
+
+
+        // 2. 发送本地通知
+        // 应用程序级别的操作
+        //        UIApplication.sharedApplication().presentLocalNotificationNow(localNot)
+        UIApplication.shared.scheduleLocalNotification(localNot)
+    }
+    
 }
 
