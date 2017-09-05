@@ -24,11 +24,11 @@ class ViewController: UIViewController {
     @IBAction func sendNot() {
 
         // 1. 创建一个本地通知
-        let localNot = UILocalNotification()
-        // 1.1 设置通知的必选项
-        localNot.alertBody = "发发发通知!?"
-        // 1.2 通知的发送时间
-        localNot.fireDate = NSDate(timeIntervalSinceNow: 2) as Date
+//        let localNot = UILocalNotification()
+//        // 1.1 设置通知的必选项
+//        localNot.alertBody = "发发发通知!?"
+//        // 1.2 通知的发送时间
+//        localNot.fireDate = NSDate(timeIntervalSinceNow: 2) as Date
 
 
 
@@ -38,22 +38,26 @@ class ViewController: UIViewController {
 //        UIApplication.shared.scheduleLocalNotification(localNot)
 
         //copy thoes codes from website but it doesnot work
-//        let content = UNMutableNotificationContent()
-//        content.title = NSString.localizedUserNotificationString(forKey:
-//            "Hello!", arguments: nil)
-//        content.body = NSString.localizedUserNotificationString(forKey:
-//            "Hello_message_body", arguments: nil)
-//
-//        // Deliver the notification in five seconds.
-//        content.sound = UNNotificationSound.default()
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
-//                                                        repeats: false)
-//
-//        // Schedule the notification.
-//        let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
-//        let center = UNUserNotificationCenter.current()
-//        center.add(request, withCompletionHandler: nil)
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey:
+            "Hello!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey:
+            "Hello_message_body", arguments: nil)
 
+        // Deliver the notification in five seconds.
+        content.sound = UNNotificationSound.default()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+                                                        repeats: false)
+
+        // Schedule the notification.
+        let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
+
+//        let center = UNUserNotificationCenter.current()
+//        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+//            // Enable or disable features based on authorization
+//        }
     }
 
 
