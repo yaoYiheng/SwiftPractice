@@ -36,6 +36,15 @@ class ViewController: UIViewController {
         //        UIApplication.sharedApplication().presentLocalNotificationNow(localNot)
         UIApplication.shared.scheduleLocalNotification(localNot)
     }
+
+
+    @IBAction func cancelBot() {
+        UIApplication.shared.cancelAllLocalNotifications()
+    }
+    
+    @IBAction func viewNot() {
+    }
+    
     
 }
 
