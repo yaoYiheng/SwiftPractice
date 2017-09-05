@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -33,13 +34,32 @@ class ViewController: UIViewController {
 
         // 2. 发送本地通知
         // 应用程序级别的操作
-        //        UIApplication.sharedApplication().presentLocalNotificationNow(localNot)
-        UIApplication.shared.scheduleLocalNotification(localNot)
+//        //        UIApplication.sharedApplication().presentLocalNotificationNow(localNot)
+//        UIApplication.shared.scheduleLocalNotification(localNot)
+
+        //copy thoes codes from website but it doesnot work
+//        let content = UNMutableNotificationContent()
+//        content.title = NSString.localizedUserNotificationString(forKey:
+//            "Hello!", arguments: nil)
+//        content.body = NSString.localizedUserNotificationString(forKey:
+//            "Hello_message_body", arguments: nil)
+//
+//        // Deliver the notification in five seconds.
+//        content.sound = UNNotificationSound.default()
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+//                                                        repeats: false)
+//
+//        // Schedule the notification.
+//        let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+//        let center = UNUserNotificationCenter.current()
+//        center.add(request, withCompletionHandler: nil)
+
     }
 
 
     @IBAction func cancelBot() {
         UIApplication.shared.cancelAllLocalNotifications()
+
     }
     
     @IBAction func viewNot() {
