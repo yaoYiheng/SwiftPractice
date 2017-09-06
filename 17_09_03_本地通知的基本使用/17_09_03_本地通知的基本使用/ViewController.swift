@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 
     @IBAction func sendNot() {
 
+        print("来没来")
         // 1. 创建一个本地通知
 //        let localNot = UILocalNotification()
 //        // 1.1 设置通知的必选项
@@ -54,10 +55,7 @@ class ViewController: UIViewController {
         let center = UNUserNotificationCenter.current()
         center.add(request, withCompletionHandler: nil)
 
-//        let center = UNUserNotificationCenter.current()
-//        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-//            // Enable or disable features based on authorization
-//        }
+
     }
 
 

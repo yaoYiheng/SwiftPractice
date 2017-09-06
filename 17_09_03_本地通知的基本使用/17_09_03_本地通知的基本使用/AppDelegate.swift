@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //使用UNUserNotificationCenter来管理通知
+        // 1、请求用户授权：
+        let center = UNUserNotificationCenter.current()
+        //处理通知：设置UNUserNotificationCenterDelegate：
+        //注意：UNUserNotificationCenter的delegate必须在application:willFinishLaunchingWithOptions: or application:didFinishLaunchingWithOptions:方法中实现；
+
+        center.delegate = self
+
+        //请求授权选项：
+        // UNAuthorizationOption Badge= 1 (1 << 0), ( bædʒ校徽)
+        // UNAuthorizationOption Sound= 2 (1 << 1),
+        // UNAuthorizationOption Alert= 4 (1 << 2),
+        // UNAuthorizationOption CarPlay = 8 (1 << 3),
+
+        //2、iOS 10使用以下方法注册，才能得到授权，注册通知以后，会自动注册deviceToken，如果获取不到deviceToken，Xcode8下要注意开启Capability->Push Notification。
+
+        //请求获取通知权限（角标，声音，弹框）
+
+
+        center.requestAuthorization(options: UNAuthorizationOptions(rawValue: UNAuthorizationOptions.RawValue(UInt8(UNAuthorizationOptions.alert.rawValue) | UInt8(UNAuthorizationOptions.sound.rawValue) | UInt8(UNAuthorizationOptions.badge.rawValue)))) { (granted, error) in
+            if granted {
+                print("request authorization successed!")
+            }
+        }
+
+        //或者你也可以以用 “  |  ”     ( kəmˈpliʃ(ə)n  完成   ˈhandlə,处理者)
+//        [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+//            if (granted) {
+//            //获取用户是否同意开启通知
+//            NSLog(@"request authorization successed!");
+//            }
+//            }];
+        // 3、补充：获取当前的通知设置，UNNotificationSettings是只读对象，不能直接修改，只能通过以下方法获取
+        center.getNotificationSettings { (settings) in
+            // UNAuthorizationStatus NotDetermined :没有做出选择
+            // UNAuthorizationStatus Denied :用户未授权
+            // UNAuthorizationStatus Authorized：用户已授权
+            if settings.authorizationStatus == UNAuthorizationStatus.authorized{
+                print("已授权")
+            }
+            else if settings.authorizationStatus == UNAuthorizationStatus.denied{
+                print("未收权")
+            }
+
+        }
+
+
+
         return true
     }
 
@@ -42,5 +90,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
 }
 
