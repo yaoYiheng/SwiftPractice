@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 
         // Deliver the notification in five seconds.
         content.sound = UNNotificationSound.default()
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
                                                         repeats: false)
 
         // Schedule the notification.
@@ -60,7 +60,11 @@ class ViewController: UIViewController {
 
 
     @IBAction func cancelBot() {
-        UIApplication.shared.cancelAllLocalNotifications()
+//        UIApplication.shared.cancelAllLocalNotifications()
+        //通过消息发送中心取消
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+
 
     }
     
