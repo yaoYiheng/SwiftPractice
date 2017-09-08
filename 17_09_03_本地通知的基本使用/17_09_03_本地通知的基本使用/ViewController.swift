@@ -69,6 +69,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func viewNot() {
+
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { (request) in
+            print(request)
+        }
+//        print(UIApplication.shared.scheduledLocalNotifications)
     }
     
     
