@@ -12,6 +12,7 @@
 		A5D1796C1F64059F00E7D61F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D1796A1F64059F00E7D61F /* Main.storyboard */; };
 		A5D1796E1F64059F00E7D61F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D1796D1F64059F00E7D61F /* Assets.xcassets */; };
 		A5D179711F64059F00E7D61F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D1796F1F64059F00E7D61F /* LaunchScreen.storyboard */; };
+		A5D1797A1F655BBF00E7D61F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D179791F655BBF00E7D61F /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A5D1796D1F64059F00E7D61F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5D179701F64059F00E7D61F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5D179721F64059F00E7D61F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D179791F655BBF00E7D61F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5D1797A1F655BBF00E7D61F /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				A5D179651F64059F00E7D61F /* 17_09_09_请求苹果获得deviceToken */,
 				A5D179641F64059F00E7D61F /* Products */,
+				A5D179781F655BBE00E7D61F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +66,14 @@
 				A5D179721F64059F00E7D61F /* Info.plist */,
 			);
 			path = "17_09_09_请求苹果获得deviceToken";
+			sourceTree = "<group>";
+		};
+		A5D179781F655BBE00E7D61F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5D179791F655BBF00E7D61F /* iAd.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

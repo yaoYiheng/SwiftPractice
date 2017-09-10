@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>17_09_09_请求苹果获得deviceToken.xcscheme</key>
+		<key>17_09_10_广告.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A5D179621F64059F00E7D61F</key>
+		<key>A5AB6FB21F655C5C00BE11F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
