@@ -12,6 +12,8 @@ import GoogleMaps
 class ViewController: UIViewController {
 
 //    var mapView = MAMapView()
+    var mapView: GMSMapView?
+
     //位置管理者
     private lazy var locationManager: CLLocationManager = {
         let locationaManager = CLLocationManager()
@@ -29,22 +31,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        initMapView()
+        initMapView()
+    }
+
+    func initMapView() {
+        mapView = GMSMapView()
+        mapView?.delegate = self
+        mapView?.frame = UIScreen.main.bounds
+        view.addSubview(mapView!)
+
     }
 
 
 }
 
 
-// MARK: - <#MAMapViewDelegate#>
-//extension ViewController: MAMapViewDelegate{
-//
-//    //长按时调用
-//    func mapView(_ mapView: MAMapView!, didLongPressedAt coordinate: CLLocationCoordinate2D) {
-//        print("来来来")
-//
-//    }
-//
-//}
+extension ViewController: GMSMapViewDelegate{
 
+}
 
