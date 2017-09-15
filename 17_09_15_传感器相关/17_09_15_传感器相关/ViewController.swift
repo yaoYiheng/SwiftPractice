@@ -12,13 +12,33 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        proximityTest()
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
+
+    private func proximityTest() {
+        //开启距离传感器
+        UIDevice.current.isProximityMonitoringEnabled = true
+
+        //距离传感器通过通知中心发送消息
+        //在通知中心中监听状态的改变
+        NotificationCenter.default.addObserver(self, selector: #selector(statusChange), name: NSNotification.Name.UIDeviceProximityStateDidChange, object: nil)
+
+    }
+
+    @objc private func statusChange() {
+        if UIDevice.current.proximityState {
+            print("something is approaching")
+        }else{
+            print("someting is leaving")
+        }
+    }
+
 
 
 }
