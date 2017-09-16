@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ViewController: UIViewController {
+
+    let motionManager: CMMotionManager = CMMotionManager()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //测试距离传感器
         proximityTest()
+
+        //测试加速计
+        motionTest()
 
     }
 
@@ -40,6 +48,21 @@ class ViewController: UIViewController {
     }
 
 
+    private func motionTest() {
+
+        if motionManager.isAccelerometerAvailable == false {
+            print("加速计不可用")
+            return
+        }
+
+        motionManager.startAccelerometerUpdates(to: OperationQueue.main) { (data, error) in
+            if error == nil{
+                print(data)
+            }
+        }
+
+
+    }
 
 }
 
