@@ -55,13 +55,22 @@ class ViewController: UIViewController {
             return
         }
 
-        motionManager.startAccelerometerUpdates(to: OperationQueue.main) { (data, error) in
-            if error == nil{
-                print(data)
-            }
-        }
+        //设置数据采集的间隔
+        motionManager.accelerometerUpdateInterval = 1.0
+        //push模式, 把数据主动告诉外界
+//        motionManager.startAccelerometerUpdates(to: OperationQueue.main) { (data, error) in
+//            if error == nil{
+//                print(data)
+//            }
+//        }
 
+        //开始采集数据
+        motionManager.startAccelerometerUpdates()
 
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("点击获取当前数据\(motionManager.accelerometerData?.acceleration)" )
     }
 
 }
