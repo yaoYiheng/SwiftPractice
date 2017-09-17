@@ -10,7 +10,8 @@ import UIKit
 import CoreMotion
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var showLabel: UILabel!
+    
     let motionManager: CMMotionManager = CMMotionManager()
 
 
@@ -73,5 +74,19 @@ class ViewController: UIViewController {
         print("点击获取当前数据\(motionManager.accelerometerData?.acceleration)" )
     }
 
+}
+
+
+// MARK: - 摇一摇功能的扩展
+extension ViewController{
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        showLabel.text = "开始摇一摇"
+    }
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        showLabel.text = "摇一摇结束"
+    }
+    override func motionCancelled(_ motion: UIEventSubtype, with event: UIEvent?) {
+        showLabel.text = "摇一摇取消"
+    }
 }
 
