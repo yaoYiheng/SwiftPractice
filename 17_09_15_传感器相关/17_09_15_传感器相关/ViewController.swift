@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     //创建计步器对象
     let stepCounter: CMStepCounter = CMStepCounter()
 
+    let stepCounter1: CMPedometer = CMPedometer()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,9 @@ class ViewController: UIViewController {
         //测试加速计
 //        motionTest()
 
+        //计步器测试(过期)
+//        stepTestDeprecated()
+
         //计步器测试
         stepTest()
     }
@@ -36,6 +41,32 @@ class ViewController: UIViewController {
     }
 
     private func stepTest() {
+        if !CMPedometer.isStepCountingAvailable(){
+            print("不可用")
+            return}
+
+        stepCounter1.startUpdates(from: Date.init(timeIntervalSinceNow: 0)) { (data, error) in
+            if error == nil{
+                guard let realData = data else {
+                    print("不可用")
+                    return}
+                // CMPedometerData
+                // numberOfSteps: 步数
+                // distance: 距离
+                // floorsAscended: 上楼层数
+                // floorsDescended: 下楼层数
+
+                print("今天走了\(String(describing: realData.distance))米, 走了\(realData.numberOfSteps)步")
+
+            }
+        }
+
+
+    }
+
+
+    /// 过期的计步器方法
+    private func stepTestDeprecated() {
         if !CMStepCounter.isStepCountingAvailable(){
             return
         }
