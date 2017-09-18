@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     let motionManager: CMMotionManager = CMMotionManager()
 
+    //创建计步器对象
+    let stepCounter: CMStepCounter = CMStepCounter()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +25,28 @@ class ViewController: UIViewController {
         proximityTest()
 
         //测试加速计
-        motionTest()
+//        motionTest()
 
+        //计步器测试
+        stepTest()
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
+    private func stepTest() {
+        if !CMStepCounter.isStepCountingAvailable(){
+            return
+        }
+
+        let begin = Date.init(timeIntervalSinceNow: -24 * 60 * 60)
+        let end = Date.init(timeIntervalSinceNow: 0)
+
+        stepCounter.queryStepCountStarting(from: begin, to: end, to: OperationQueue.main) { (count, error) in
+            print("走了\(count)步")
+        }
+    }
     private func proximityTest() {
         //开启距离传感器
         UIDevice.current.isProximityMonitoringEnabled = true
