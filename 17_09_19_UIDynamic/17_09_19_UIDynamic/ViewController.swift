@@ -25,7 +25,28 @@ class ViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "background")!)
 
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //执行重力仿真行为
+        gravity()
+    }
+
+    private func gravity() {
+
+        //创建仿真行为
+        let gravityBehavior = UIGravityBehavior(items: [box1])
+
+        //设置重力仿真行为的相关属性移动的角度以及初速度
+//        gravityBehavior.setAngle(CGFloat(Double.pi), magnitude: 0.3)
+        gravityBehavior.magnitude = 0.2
+
+        //将仿真行为添加到物理仿真器中
+        animator.addBehavior(gravityBehavior)
+
+    }
 
 
 }
