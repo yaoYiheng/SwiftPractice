@@ -56,7 +56,26 @@ class ViewController: UIViewController {
 
     /// 碰撞仿真
     private func collision() {
+        //创建仿真行为的同时添加元素
+        let collision = UICollisionBehavior(items: [box1, box2])
 
+        //设置碰撞的边界是否等于物理仿真器的边界
+        collision.translatesReferenceBoundsIntoBoundary = true
+
+
+        //通过两点的连线设置边界
+        collision.addBoundary(withIdentifier: "a" as NSCopying, from: CGPoint.init(x: 0, y: 500), to: CGPoint.init(x: view.bounds.size.width, y: 500))
+
+        //碰撞模式(边界碰撞 碰撞):默认是everything
+        //boundaries
+        //everything
+        //items
+
+        //通过设置代理监听碰撞行为
+        collision.collisionDelegate = self
+
+        //添加到仿真器中
+        animator.addBehavior(collision)
 
     }
 
@@ -71,12 +90,11 @@ class ViewController: UIViewController {
         //创建推动仿真行为
         //        continuous: 推动力会一直作用在物体上
         //        instantaneous: 不会持续, 推过之后物理保持当前状态
-        let push = UIPushBehavior(items: [box1], mode: .continuous)
+        let push = UIPushBehavior(items: [box1], mode: .instantaneous)
 
         //还需要设置推的方向数值越大速度越快
         push.pushDirection = CGVector.init(dx: 0, dy: -1)
-
-        animator.removeBehavior(push)
+        
 
         animator.addBehavior(push)
 
@@ -85,3 +103,20 @@ class ViewController: UIViewController {
 
 }
 
+
+// MARK: - 碰撞代理
+extension ViewController: UICollisionBehaviorDelegate{
+
+
+    /// 元素与元素开始碰撞
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item1: UIDynamicItem, with item2: UIDynamicItem, at p: CGPoint) {
+        print("元素与元素开始碰撞在\(p)")
+    }
+
+    /// 元素与边界开始碰撞
+
+    func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
+        print("元素与边界开始碰撞在\(p)")
+    }
+    
+}
