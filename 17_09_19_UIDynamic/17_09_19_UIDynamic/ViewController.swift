@@ -23,6 +23,10 @@ class ViewController: UIViewController {
     private lazy var animator: UIDynamicAnimator = {
         return UIDynamicAnimator(referenceView: self.view)
     }()
+
+    private lazy var snap: UISnapBehavior = {
+        return UISnapBehavior()
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "background")!)
@@ -30,6 +34,10 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        let point = touches.first?.location(in: view)
+
+        snap(point: point!)
         push()
         //执行重力仿真行为
         gravity()
@@ -47,7 +55,7 @@ class ViewController: UIViewController {
 
         //设置重力仿真行为的相关属性移动的角度以及初速度
 //        gravityBehavior.setAngle(CGFloat(Double.pi), magnitude: 0.3)
-        gravityBehavior.magnitude = 0.2
+        gravityBehavior.magnitude = 2
 
         //将仿真行为添加到物理仿真器中
         animator.addBehavior(gravityBehavior)
@@ -80,7 +88,19 @@ class ViewController: UIViewController {
     }
 
     /// 捕捉仿真
-    private func snap() {
+    private func snap(point: CGPoint) {
+        //如果想要多次执行捕捉行为, 需要移除之前已添加的捕捉行为
+        animator.removeAllBehaviors()
+
+        //创建捕捉行为
+        snap = UISnapBehavior(item: box2, snapTo: point)
+
+        // damping value from 0.0 to 1.0. 1.0 is the least oscillation.
+        snap.damping = 1
+        //添加到物理仿真器
+        animator.addBehavior(snap)
+
+
 
     }
 
@@ -94,7 +114,7 @@ class ViewController: UIViewController {
 
         //还需要设置推的方向数值越大速度越快
         push.pushDirection = CGVector.init(dx: 0, dy: -1)
-        
+
 
         animator.addBehavior(push)
 
