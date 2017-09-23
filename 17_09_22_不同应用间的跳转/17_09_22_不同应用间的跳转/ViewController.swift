@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 //        let url = NSURL.init(string: "sms://10086")
 //        UIApplication.shared.openURL(url! as URL)
 
-        let url = URL.init(string: "https://twitter.com/kharrison")
+        let url = URL.init(string: "test1://")
 
         //关于这个key: UIApplicationOpenURLOptionUniversalLinksOnly
         //如果将其设置为true, 只会当手机中装有该app时, 才会跳转,
