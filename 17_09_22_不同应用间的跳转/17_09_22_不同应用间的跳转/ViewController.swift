@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func toFriends() {
+        
+    }
+    @IBAction func toMoment() {
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         //iOS 9.0之前可以用以下方法打开
