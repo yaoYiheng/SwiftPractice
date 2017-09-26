@@ -11,9 +11,26 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBAction func toFriends() {
-        
+
+        let url = URL.init(string: "test1://")
+
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
+        else{
+            print("没有安装")
+        }
+
     }
     @IBAction func toMoment() {
+        let url = URL.init(string: "test1://")
+
+        if UIApplication.shared.canOpenURL(url!) {
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        }
+        else{
+            print("没有安装")
+        }
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
