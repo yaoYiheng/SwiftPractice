@@ -31,6 +31,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "background")!)
 
+        box1.layer.masksToBounds = true
+        box1.layer.cornerRadius = box1.bounds.size.width / 2
+        box1.layer.borderWidth = 2
+
+        box2.layer.masksToBounds = true
+        box2.layer.cornerRadius = box1.bounds.size.width / 2
+        box2.layer.borderWidth = 2
+
+
+        let animation = CAKeyframeAnimation()
+        animation.duration = 4
+        animation.autoreverses = true
+        animation.repeatCount = MAXFLOAT
+        animation.keyPath = "transform.rotation"
+
+        let angle = 180 / 180 * Double.pi
+        let angle1 = -180 / 180 * Double.pi
+        animation.values = [angle, angle1]
+
+        box1.layer.add(animation, forKey: nil)
+
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,7 +76,7 @@ class ViewController: UIViewController {
 
         //设置重力仿真行为的相关属性移动的角度以及初速度
 //        gravityBehavior.setAngle(CGFloat(Double.pi), magnitude: 0.3)
-        gravityBehavior.magnitude = 1
+        gravityBehavior.magnitude = 2
 
         //将仿真行为添加到物理仿真器中
         animator.addBehavior(gravityBehavior)
@@ -96,7 +117,7 @@ class ViewController: UIViewController {
         snap = UISnapBehavior(item: box2, snapTo: point)
 
         // damping value from 0.0 to 1.0. 1.0 is the least oscillation.
-        snap.damping = 1
+        snap.damping = 0.3
         //添加到物理仿真器
         animator.addBehavior(snap)
 
