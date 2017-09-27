@@ -51,11 +51,11 @@ class ViewController: UIViewController {
     private func gravity() {
 
         //创建仿真行为
-        let gravityBehavior = UIGravityBehavior(items: [box1])
+        let gravityBehavior = UIGravityBehavior(items: [box1, box2])
 
         //设置重力仿真行为的相关属性移动的角度以及初速度
 //        gravityBehavior.setAngle(CGFloat(Double.pi), magnitude: 0.3)
-        gravityBehavior.magnitude = 2
+        gravityBehavior.magnitude = 1
 
         //将仿真行为添加到物理仿真器中
         animator.addBehavior(gravityBehavior)
@@ -113,7 +113,9 @@ class ViewController: UIViewController {
         let push = UIPushBehavior(items: [box1], mode: .instantaneous)
 
         //还需要设置推的方向数值越大速度越快
-        push.pushDirection = CGVector.init(dx: 0, dy: -1)
+        let rondomX = Int(arc4random_uniform(10))
+        let rondomY = Int(arc4random_uniform(10))
+        push.pushDirection = CGVector.init(dx: rondomX, dy: -rondomY)
 
 
         animator.addBehavior(push)
