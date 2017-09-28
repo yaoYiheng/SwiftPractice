@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBAction func toFriends() {
 
-        let url = URL.init(string: "test1://")
+        let url = URL.init(string: "test1://friendList")
 
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
     }
     @IBAction func toMoment() {
-        let url = URL.init(string: "test1://")
+        let url = URL.init(string: "test1://moments")
 
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
