@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 当其他的app通过url跳转到该app时, 会调用该方法(9.0之后)
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        print(url)
         guard let host = url.host else { return true }
 
         //取出导航控制器
@@ -45,6 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
 
+        return true
+    }
+
+
+    /// 已过期
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         return true
     }
 
