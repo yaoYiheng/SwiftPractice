@@ -5,6 +5,39 @@
 //  Created by 姚懿恒 on 2017/9/22.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
+//        About — prefs:root=General&path=About
+//        Accessibility — prefs:root=General&path=ACCESSIBILITY
+//        AirplaneModeOn— prefs:root=AIRPLANE_MODE
+//        Auto-Lock — prefs:root=General&path=AUTOLOCK
+//        Brightness — prefs:root=Brightness
+//        Bluetooth — prefs:root=General&path=Bluetooth
+//        Date& Time — prefs:root=General&path=DATE_AND_TIME
+//        FaceTime — prefs:root=FACETIME
+//        General— prefs:root=General
+//        Keyboard — prefs:root=General&path=Keyboard
+//        iCloud — prefs:root=CASTLE  iCloud
+//        Storage & Backup — prefs:root=CASTLE&path=STORAGE_AND_BACKUP
+//        International — prefs:root=General&path=INTERNATIONAL
+//          Location Services — prefs:root=LOCATION_SERVICES
+//        Wi-Fi — prefs:root=WIFISetting—prefs:root=INTERNET_TETHERING
+//        Wallpaper — prefs:root=Wallpaper
+//        VPN — prefs:root=General&path=Network/VPN
+//        Twitter — prefs:root=TWITTER  Usage — prefs:root=General&path=USAGE
+//        Store — prefs:root=STORE
+//        SoftwareUpdate— prefs:root=General&path=SOFTWARE_UPDATE_LINK
+//        Sounds — prefs:root=Sounds
+//        Siri — prefs:root=General&path=Assistant
+//        Safari — prefs:root=Safari
+//        Reset — prefs:root=General&path=Reset
+//        Profile — prefs:root=General&path=ManagedConfigurationList
+//        Phone — prefs:root=Phone  Photos — prefs:root=Photos
+//        Notification — prefs:root=NOTIFICATIONS_ID
+//        Notes — prefs:root=NOTES
+//        Nike + iPod — prefs:root=NIKE_PLUS_IPOD
+//        Network — prefs:root=General&path=Network
+//        Music VolumeLimit— prefs:root=MUSIC&path=VolumeLimit
+//         Music Equalizer — prefs:root=MUSIC&path=EQ
+//        Music — prefs:root=MUSIC
 
 import UIKit
 
