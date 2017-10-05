@@ -13,6 +13,8 @@
 		A5D1B2D11F86446500076AF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D1B2D01F86446500076AF4 /* Assets.xcassets */; };
 		A5D1B2D41F86446500076AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D1B2D21F86446500076AF4 /* LaunchScreen.storyboard */; };
 		A5D1B2DD1F8644FF00076AF4 /* Company.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5D1B2DB1F8644FF00076AF4 /* Company.xcdatamodeld */; };
+		A5D1B2E01F86468300076AF4 /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1B2DE1F86468300076AF4 /* Employee+CoreDataClass.swift */; };
+		A5D1B2E11F86468300076AF4 /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D1B2DF1F86468300076AF4 /* Employee+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A5D1B2D31F86446500076AF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5D1B2D51F86446500076AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5D1B2DC1F8644FF00076AF4 /* Company.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Company.xcdatamodel; sourceTree = "<group>"; };
+		A5D1B2DE1F86468300076AF4 /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataClass.swift"; path = "17_10_05_CoreData/Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A5D1B2DF1F86468300076AF4 /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Employee+CoreDataProperties.swift"; path = "17_10_05_CoreData/Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		A5D1B2BD1F86446500076AF4 = {
 			isa = PBXGroup;
 			children = (
+				A5D1B2DE1F86468300076AF4 /* Employee+CoreDataClass.swift */,
+				A5D1B2DF1F86468300076AF4 /* Employee+CoreDataProperties.swift */,
 				A5D1B2DB1F8644FF00076AF4 /* Company.xcdatamodeld */,
 				A5D1B2C81F86446500076AF4 /* 17_10_05_CoreData */,
 				A5D1B2C71F86446500076AF4 /* Products */,
@@ -142,6 +148,8 @@
 				A5D1B2CC1F86446500076AF4 /* ViewController.swift in Sources */,
 				A5D1B2DD1F8644FF00076AF4 /* Company.xcdatamodeld in Sources */,
 				A5D1B2CA1F86446500076AF4 /* AppDelegate.swift in Sources */,
+				A5D1B2E01F86468300076AF4 /* Employee+CoreDataClass.swift in Sources */,
+				A5D1B2E11F86468300076AF4 /* Employee+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
