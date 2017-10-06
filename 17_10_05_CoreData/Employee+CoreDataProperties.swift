@@ -2,7 +2,7 @@
 //  Employee+CoreDataProperties.swift
 //  17_10_05_CoreData
 //
-//  Created by 姚懿恒 on 2017/10/5.
+//  Created by 姚懿恒 on 2017/10/6.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
 //
@@ -17,8 +17,8 @@ extension Employee {
         return NSFetchRequest<Employee>(entityName: "Employee")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var height: Float
     @NSManaged public var birthday: NSDate?
+    @NSManaged public var height: Float
+    @NSManaged public var name: String?
 
 }

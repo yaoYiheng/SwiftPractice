@@ -2,7 +2,7 @@
 //  Employee+CoreDataClass.swift
 //  17_10_05_CoreData
 //
-//  Created by 姚懿恒 on 2017/10/5.
+//  Created by 姚懿恒 on 2017/10/6.
 //  Copyright © 2017年 姚懿恒. All rights reserved.
 //
 //
