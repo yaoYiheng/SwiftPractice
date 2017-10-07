@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             employee.birthday = NSDate()
 
         }
+
         if context.hasChanges {
             do {
                 print("保存成功")

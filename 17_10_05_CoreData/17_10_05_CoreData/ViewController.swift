@@ -30,11 +30,11 @@ class ViewController: UIViewController {
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .allDomainsMask, true).first
         let urlPath = URL.init(string: path!)
 
-        let url = urlPath?.appendingPathComponent("company.sqlite")
-
-        
-        store.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url!, options: <#T##[AnyHashable : Any]?#>)
-
+//        let url = urlPath?.appendingPathComponent("company.sqlite")
+//
+//
+//        store.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url!, options: <#T##[AnyHashable : Any]?#>)
+//
 
 
         context.persistentStoreCoordinator = store
