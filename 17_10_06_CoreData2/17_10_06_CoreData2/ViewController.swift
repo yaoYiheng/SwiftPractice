@@ -39,6 +39,14 @@ class ViewController: UIViewController {
 
     }
 
-
+    @IBAction func add() {
+    }
+    @IBAction func delete() {
+    }
+    @IBAction func modify() {
+    }
+    @IBAction func find() {
+    }
+    
 }
 
