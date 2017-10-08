@@ -11,13 +11,23 @@ import CoreData
 
 class ViewController: UIViewController {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //获取context
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-        //添加50个员工
+
+
+
+
+    }
+
+
+    /// 添加50员工
+    private func addFIfty() {
         for item in 0...50 {
             let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee
             employee.name = "张\(item)"
@@ -35,16 +45,37 @@ class ViewController: UIViewController {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
-
-
     }
 
+
+    /// 添加一个
     @IBAction func add() {
+        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee
+
+        employee.name = "123"
+        employee.height = 12.32
+        employee.birthday = NSDate()
+
+        if context.hasChanges {
+            do {
+                print("保存成功")
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
+
+    /// 删
     @IBAction func delete() {
     }
+
+    /// 改
     @IBAction func modify() {
     }
+
+    /// 查
     @IBAction func find() {
     }
     
