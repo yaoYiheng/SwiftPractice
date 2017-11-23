@@ -12,6 +12,7 @@
 		A5E97B381FC6CE7200FBFA17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E97B361FC6CE7200FBFA17 /* Main.storyboard */; };
 		A5E97B3A1FC6CE7200FBFA17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5E97B391FC6CE7200FBFA17 /* Assets.xcassets */; };
 		A5E97B3D1FC6CE7200FBFA17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E97B3B1FC6CE7200FBFA17 /* LaunchScreen.storyboard */; };
+		A5E97B451FC6D2DF00FBFA17 /* Food.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5E97B441FC6D2DF00FBFA17 /* Food.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A5E97B391FC6CE7200FBFA17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5E97B3C1FC6CE7200FBFA17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5E97B3E1FC6CE7200FBFA17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5E97B441FC6D2DF00FBFA17 /* Food.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Food.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				A5E97B321FC6CE7200FBFA17 /* AppDelegate.swift */,
 				A5E97B341FC6CE7200FBFA17 /* ViewController.swift */,
 				A5E97B361FC6CE7200FBFA17 /* Main.storyboard */,
+				A5E97B441FC6D2DF00FBFA17 /* Food.plist */,
 				A5E97B391FC6CE7200FBFA17 /* Assets.xcassets */,
 				A5E97B3B1FC6CE7200FBFA17 /* LaunchScreen.storyboard */,
 				A5E97B3E1FC6CE7200FBFA17 /* Info.plist */,
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E97B451FC6D2DF00FBFA17 /* Food.plist in Resources */,
 				A5E97B3D1FC6CE7200FBFA17 /* LaunchScreen.storyboard in Resources */,
 				A5E97B3A1FC6CE7200FBFA17 /* Assets.xcassets in Resources */,
 				A5E97B381FC6CE7200FBFA17 /* Main.storyboard in Resources */,
