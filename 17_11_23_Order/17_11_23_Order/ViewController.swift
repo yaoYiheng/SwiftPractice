@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+     lazy var food: [Array<Any>] = {
+        //从Bundle中加载plist文件
+        let path = Bundle.main.path(forResource: "Food.plist", ofType: nil)
+
+        return NSArray.init(contentsOfFile: path!) as! [Array<Any>]
+    }()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print(food)
     }
 
     override func didReceiveMemoryWarning() {
