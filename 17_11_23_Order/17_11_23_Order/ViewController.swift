@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var dishesLabel: UILabel!
     @IBOutlet weak var liquidLabel: UILabel!
     
-     lazy var food: [Array<Any>] = {
+    @IBOutlet weak var pickerView: UIPickerView!
+    lazy var food: [Array<Any>] = {
         //从Bundle中加载plist文件
         let path = Bundle.main.path(forResource: "Food.plist", ofType: nil)
 
@@ -23,9 +24,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(food)
+        defaultSelect()
     }
 
+
+    private func defaultSelect(){
+        for index in 0..<food.count {
+
+            pickerView(pickerView, didSelectRow: 0, inComponent: index)
+        }
+    }
 
 
 }

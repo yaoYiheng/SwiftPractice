@@ -112,6 +112,7 @@
                         <outlet property="dishesLabel" destination="6LQ-Kb-HVq" id="r98-Wn-2ef"/>
                         <outlet property="fruitLabel" destination="w8L-jr-4NC" id="TQy-aX-zHg"/>
                         <outlet property="liquidLabel" destination="2N4-FV-4DW" id="Bky-Ml-BNW"/>
+                        <outlet property="pickerView" destination="5W4-79-gB4" id="zdV-5Y-fdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
