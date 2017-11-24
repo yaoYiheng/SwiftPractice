@@ -40,6 +40,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="jig-8h-MUK"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yZq-vH-5f1"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zlf-10-gyL"/>
+                                </connections>
                             </pickerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0M4-v9-9c0">
                                 <rect key="frame" x="0.0" y="306" width="375" height="361"/>

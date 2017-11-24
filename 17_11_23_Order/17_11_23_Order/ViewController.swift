@@ -23,11 +23,31 @@ class ViewController: UIViewController {
         print(food)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+
+}
+
+//在类扩展中实现代理与数据源方法
+extension ViewController: UIPickerViewDelegate{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return food.count
     }
 
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let comArray = food[component]
+        return comArray.count
+
+    }
+
+
+}
+extension ViewController: UIPickerViewDataSource{
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let comArray = food[component]
+        return comArray[row] as? String
+
+    }
 
 }
 
