@@ -27,7 +27,24 @@ class ViewController: UIViewController {
         defaultSelect()
     }
 
+    //监听按钮点击
+    @IBAction func randomOrder() {
 
+        for index in 0..<food.count {
+            //取出第index组中的数组的个数
+            let each = food[index].count
+            //在根据个数随机选择
+            let randomIndex = arc4random_uniform(UInt32(each))
+            //给pickerView传入数值
+            pickerView.selectRow(Int(randomIndex), inComponent: index, animated: true)
+
+            //将数据显示到Label上
+            pickerView(pickerView, didSelectRow: Int(randomIndex), inComponent: index)
+
+        }
+
+    }
+    
     private func defaultSelect(){
         for index in 0..<food.count {
 

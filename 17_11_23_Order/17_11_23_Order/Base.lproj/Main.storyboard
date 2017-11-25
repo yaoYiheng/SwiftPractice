@@ -31,6 +31,9 @@
                                         <rect key="frame" x="20" y="7" width="62" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="随机点餐"/>
+                                        <connections>
+                                            <action selector="randomOrder" destination="BYZ-38-t0r" eventType="touchUpInside" id="eep-AA-9VJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
