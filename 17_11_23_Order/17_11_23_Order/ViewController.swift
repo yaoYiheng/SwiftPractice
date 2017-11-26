@@ -34,7 +34,20 @@ class ViewController: UIViewController {
             //取出第index组中的数组的个数
             let each = food[index].count
             //在根据个数随机选择
-            let randomIndex = arc4random_uniform(UInt32(each))
+            var randomIndex = arc4random_uniform(UInt32(each))
+
+            //如果生成的随机数与当前显示的一致, 则需要重新生成一个不同的随机数
+            //获取当前选中的
+            let selectedRow = pickerView(pickerView, numberOfRowsInComponent: index)
+
+            //如果随机数等于当前行数, 则重新生成
+            print("randomIndex == \(randomIndex)")
+
+            while (selectedRow == randomIndex){
+                randomIndex = arc4random_uniform(UInt32(each))
+                
+            }
+
             //给pickerView传入数值
             pickerView.selectRow(Int(randomIndex), inComponent: index, animated: true)
 
