@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        accountTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
     }
 
     //点击按钮
@@ -35,6 +37,16 @@ class ViewController: UIViewController {
     func resignKeyboard() {
         view.endEditing(true)
     }
+
+    @objc func textChanged() {
+        
+        if passwordTextField.text != "" && accountTextField.text != "" {
+            loginButton.isEnabled = true
+        }
+        else{
+            loginButton.isEnabled = false
+        }
+    }
 }
 
 //分类
@@ -44,4 +56,5 @@ extension ViewController{
         resignKeyboard()
     }
 }
+
 
