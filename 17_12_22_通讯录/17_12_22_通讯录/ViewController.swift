@@ -10,16 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var accountTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var keepPasswordSwitch: UISwitch!
+    
+    @IBOutlet weak var autoLoginSwitch: UISwitch!
+
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //点击按钮
+    @IBAction func logInButton() {
+
+        resignKeyboard()
     }
 
 
+    //退出键盘
+    func resignKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+//分类
+extension ViewController{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //退出键盘
+        resignKeyboard()
+    }
 }
 
