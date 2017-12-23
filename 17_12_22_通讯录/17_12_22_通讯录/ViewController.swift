@@ -29,6 +29,12 @@ class ViewController: UIViewController {
     //点击按钮
     @IBAction func logInButton() {
 
+        //如果输入的账号密码正确, 才进行跳转
+        if accountTextField.text == "1" && passwordTextField.text == "2" {
+            performSegue(withIdentifier: "contactToList", sender: nil)
+        }
+
+
         resignKeyboard()
     }
 
@@ -39,7 +45,7 @@ class ViewController: UIViewController {
     }
 
     @objc func textChanged() {
-        
+
         if passwordTextField.text != "" && accountTextField.text != "" {
             loginButton.isEnabled = true
         }
