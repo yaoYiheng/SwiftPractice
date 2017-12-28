@@ -24,10 +24,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         accountTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
         passwordTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
+
+
     }
 
     //点击按钮
     @IBAction func logInButton() {
+        //模拟延迟
+        DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now() + 2.0) {
+            
+        }
 
         //如果输入的账号密码正确, 才进行跳转
         if accountTextField.text == "1" && passwordTextField.text == "2" {
