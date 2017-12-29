@@ -32,7 +32,26 @@ class ViewController: UIViewController {
     @IBAction func logInButton() {
         //模拟延迟
         DispatchQueue.global(qos: .default).asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            
+            /*
+             FIXME: 修改HUB提醒
+             参考:
+             down vote
+             accepted
+             Updated Answer:
+
+             let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+             loadingNotification.mode = MBProgressHUDMode.indeterminate
+             loadingNotification.label.text = "Loading"
+             To dismiss the ProgressHUD:
+
+             MBProgressHUD.hideAllHUDs(for: view, animated: true)
+             */
+            let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+//            loadingNotification?.mode = MBProgressHUDMode.RawValue
+//            loadingNotification?.layer.text = "Loading"
+
+
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
         }
 
         //如果输入的账号密码正确, 才进行跳转
