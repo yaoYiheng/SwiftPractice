@@ -12,6 +12,7 @@
 		A512931F1FED0F3700F3F2BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A512931D1FED0F3700F3F2BF /* Main.storyboard */; };
 		A51293211FED0F3700F3F2BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A51293201FED0F3700F3F2BF /* Assets.xcassets */; };
 		A51293241FED0F3700F3F2BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51293221FED0F3700F3F2BF /* LaunchScreen.storyboard */; };
+		A5633E541FF6CFFB002A81AB /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5633E531FF6CFFB002A81AB /* ContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A51293821FF4EE6F00F3F2BF /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		A51293831FF4EE6F00F3F2BF /* MBProgressHUD+XMG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+XMG.h"; sourceTree = "<group>"; };
 		A51293841FF4EE6F00F3F2BF /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		A5633E531FF6CFFB002A81AB /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				A51293191FED0F3700F3F2BF /* AppDelegate.swift */,
 				A512931B1FED0F3700F3F2BF /* ViewController.swift */,
+				A5633E531FF6CFFB002A81AB /* ContactViewController.swift */,
 				A512931D1FED0F3700F3F2BF /* Main.storyboard */,
 				A51293201FED0F3700F3F2BF /* Assets.xcassets */,
 				A51293221FED0F3700F3F2BF /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 			files = (
 				A512931C1FED0F3700F3F2BF /* ViewController.swift in Sources */,
 				A512931A1FED0F3700F3F2BF /* AppDelegate.swift in Sources */,
+				A5633E541FF6CFFB002A81AB /* ContactViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
